@@ -174,6 +174,8 @@ def main():
 
     # Default parameters.
     params = {
+        'title': '',
+        'subtitle': '',
         'base_path': '',
         'site_url': 'http://thoughts.mayshmallow.moe',
         'current_year': datetime.datetime.now().year
