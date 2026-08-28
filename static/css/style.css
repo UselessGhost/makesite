@@ -7,6 +7,10 @@
 	--secondary-d: oklch(from var(--secondary) calc(l - 0.1) c h);
 }
 
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
 html, body {
 	margin: 0;
 	height: 100%;
@@ -64,9 +68,8 @@ ul.posts {
 }
 
 main {
-	padding-top: 50px;
-	padding-bottom: 50px;
-	margin-inline: auto;
+	padding: 50px 0;
+	margin: 0 auto;
 	width: 100%;
 	max-width: 900px;
 
@@ -76,7 +79,7 @@ main {
 
 		border: 1px solid var(--primary-l);
 
-		background-color: rgb( from var(--primary) r g b / 0.75 );
+		background-color: rgb( from var(--primary) r g b / 0.5 );
 		backdrop-filter: blur( 10px );
 
 		box-shadow: var(--primary-d) 0 0 10px;
@@ -85,7 +88,7 @@ main {
 
 	& > article {
 		padding: 20px;
-		background-color: rgba( 0, 0, 0, 0.65 );
+		background-color: rgba( 0, 0, 0, 0.5 );
 		backdrop-filter: blur( 10px );
 
 		border: 1px solid #333;
@@ -122,6 +125,7 @@ main {
 	}
 
 	& > footer {
+		margin: 10px;
 		text-align: center;
 		text-shadow: #333 0 0 5px;
 	}
