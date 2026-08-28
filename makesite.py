@@ -174,7 +174,7 @@ def main():
 
     # Default parameters.
     params = {
-        'title': '',
+        'title': 'unknown..?',
         'subtitle': '',
         'base_path': '',
         'site_url': 'http://thoughts.mayshmallow.moe',
