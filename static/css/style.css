@@ -109,6 +109,16 @@ main {
 			padding: 10px;
 			background-color: rgba( 0, 0, 0, 0.5 );
 		}
+
+		& blockquote {
+			margin: 10px 0;
+			padding: 10px;
+			border-left: 3px solid #999;
+
+			& p {
+				margin: 10px;
+			}
+		}
 	}
 
 	& > footer {
