@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ title }} - {{ subtitle }}</title>
+    <title>{{ title }} - {{ blog_title }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{{ base_path }}/css/style.css">
 </head>
 
 <body id="{{ slug }}">
+    <main>
+        <header>
+            <h1>{{ blog_title }}</h1>
 
-<nav>
-<section>
-    <span class="home">
-        <a href="{{ base_path }}/">Home</a>
-    </span>
-    <span class="links">
-        <a href="{{ base_path }}/blog/">Blog</a>
-        <a href="{{ base_path }}/news/">News</a>
-        <a href="{{ base_path }}/contact/">Contact</a>
-        <a href="{{ base_path }}/about/">About</a>
-    </span>
-</section>
-</nav>
+            <nav>
+                <a href="/">index</a>
+                <a href="https://mayshmallow.moe" target="_blank">bsky</a>
+            </nav>
+        </header>
 
-<main>
-{{ content }}
-</main>
+        {{ content }}
 
-<footer>
-<section>
-<p>&copy; {{ current_year }} Lorem Ipsum</p>
-<p>
-    <a href="https://twitter.com/sunainapai">Twitter</a>
-    <a href="https://github.com/sunainapai">GitHub</a>
-    <a href="https://www.example.com/">Example</a>
-</p>
-</section>
-</footer>
-
+        <footer>made using <a href="https://github.com/sunainapai/makesite" target="_blank">makesite</a> ✨</footer>
+    </main>
 </body>
 </html>

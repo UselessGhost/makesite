@@ -190,8 +190,8 @@ def main():
     post_layout = fread('layout/post.html')
     list_layout = fread('layout/list.html')
     item_layout = fread('layout/item.html')
-    feed_xml = fread('layout/feed.xml')
-    item_xml = fread('layout/item.xml')
+    #feed_xml = fread('layout/feed.xml')
+    #item_xml = fread('layout/item.xml')
 
     # Combine layouts to form final layouts.
     post_layout = render(page_layout, content=post_layout)
@@ -204,24 +204,13 @@ def main():
                page_layout, **params)
 
     # Create blogs.
-    blog_posts = make_pages('content/blog/*.md',
-                            '_site/blog/{{ slug }}/index.html',
-                            post_layout, blog='blog', **params)
-    news_posts = make_pages('content/news/*.html',
-                            '_site/news/{{ slug }}/index.html',
-                            post_layout, blog='news', **params)
+    blog_posts = make_pages('content/*.md',
+                            '_site/{{ slug }}/index.html',
+                            post_layout, **params)
 
     # Create blog list pages.
-    make_list(blog_posts, '_site/blog/index.html',
-              list_layout, item_layout, blog='blog', title='Blog', **params)
-    make_list(news_posts, '_site/news/index.html',
-              list_layout, item_layout, blog='news', title='News', **params)
-
-    # Create RSS feeds.
-    make_list(blog_posts, '_site/blog/rss.xml',
-              feed_xml, item_xml, blog='blog', title='Blog', **params)
-    make_list(news_posts, '_site/news/rss.xml',
-              feed_xml, item_xml, blog='news', title='News', **params)
+    make_list(blog_posts, '_site/index.html',
+              list_layout, item_layout, title="index", **params)
 
 
 # Test parameter to be set temporarily by unit tests.

@@ -1,145 +1,117 @@
-/* General */
-body {
-    margin: 0;
-    line-height: 1.5em;
-    color: #333333;
-    font-family: helvetica, arial, sans-serif;
+:root {
+	--primary: #517;
+	--primary-l: oklch(from var(--primary) calc(l + 0.1) c h);
+	--primary-d: oklch(from var(--primary) calc(l - 0.1) c h);
+	--secondary: #fc2;
+	--secondary-l: oklch(from var(--secondary) calc(l + 0.1) c h);
+	--secondary-d: oklch(from var(--secondary) calc(l - 0.1) c h);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+html, body {
+	margin: 0;
+
+	height: 100%;
+}
+
+body {
+	font-size: 16px;
+	font-family: "DM Mono";
+
+	color: #ddd;
+	background-color: #999;
+	background-image: url( "/img/bg.png" ), repeating-linear-gradient(
+		-45deg,
+		transparent,
+		transparent 5px,
+		rgba(0, 0, 0, 0.1) 5px,
+		rgba(0, 0, 0, 0.1) 10px
+	);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-blend-mode: multiply;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0;
-    line-height: 1.2em;
-    margin-top: 1em;
+	margin: 0;
 }
 
-a:link, a:visited {
-    color: #0000e0;
-    text-decoration: none
+a {
+	color: var(--secondary);
+	text-decoration: none;
+
+	&:hover {
+		color: var(--secondary-l);
+	}
+
+	&:active {
+		color: var(--secondary-d);
+	}
 }
 
-a:hover, a:active {
-    color: #0000ff;
-    text-decoration: underline
+hr {
+	border: 0;
+	border-bottom: 2px dotted #ddd;
 }
 
+ul.posts {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 
-/* Single column layout */
-nav section, header section, main, footer section {
-    max-width: 40em;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 0.5em;
+	& > li {
+		margin-bottom: 5px;
+	}
 }
 
+main {
+	margin-top: 50px;
+	margin-inline: auto;
+	width: 100%;
+	max-width: 700px;
 
-/* Navigation panel */
-nav {
-    background: #333333;
-    border-bottom: thin solid #111111;
-    line-height: 3em;
-}
+	& > header {
+		padding: 20px;
+		margin-bottom: 10px;
 
-nav a {
-    margin-right: 1em;
-}
+		border: 1px solid var(--primary-l);
 
-nav a:link, nav a:visited {
-    color: #cccccc;
-}
+		background-color: var(--primary);
 
-nav a:hover, nav a:active {
-    color: #ffffff;
-    text-decoration: none;
-}
+		box-shadow: var(--primary-d) 0 0 10px;
+		text-shadow: 0 0 5px #333;
+	}
 
-@media screen and (min-width: 600px) {
-    nav .links {
-        float: right;
-    }
-}
+	& > article {
+		padding: 20px;
+		background-color: rgba( 0, 0, 0, 0.65 );
 
+		border: 1px solid #333;
+		box-shadow: inset #111 0 0 10px;
 
-/* Footer */
-footer {
-    background: #f0f0f0;
-    border-top: thin solid #e0e0e0;
-    margin-top: 2em;
-    padding: 1em 0;
-    box-shadow: 0 100vh 0 100vh #f0f0f0;
-    text-align: center;
-}
+		margin-bottom: 10px;
 
-footer section p {
-    font-size: 0.8em;
-}
+		& > header {
+			margin-bottom: 10px;
+		}
 
-footer a {
-    margin-right: 1em;
-}
+		& img {
+			display: block;
+			margin: 0 auto;
+			max-width: 75%;
+		}
 
-footer a:last-child {
-    margin-right: 0;
-}
+		& pre {
+			display: block;
+			margin: 10px;
+			padding: 10px;
+			background-color: rgba( 0, 0, 0, 0.5 );
+		}
+	}
 
-
-/* Posts */
-article {
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-article h2 a:link, article h2 a:visited,
-article h1 a:link, article h1 a:visited,
-.more:link, .more:visited {
-    color: #333333;
-}
-
-article h2 a:hover, article h2 a:active,
-article h1 a:hover, article h1 a:active,
-.more:hover, .more:active {
-    color: #777777;
-}
-
-p.meta {
-    margin-top: 0;
-    font-size: 0.8em;
-    color: #777777;
-    font-style: italic;
-}
-
-p.summary {
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
-}
-
-div .more {
-    margin-top: 0;
-    font-weight: bold;
-}
-
-
-/* RSS */
-.rss {
-    padding: 0.3em 0.35em;
-    border-radius: 0.25em;
-    font-size: 0.75em;
-    font-weight: bold;
-}
-
-.rss:link, .rss:visited, .rss:hover, .rss:active {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.rss:link, .rss:visited {
-    background: #ff6600;
-}
-
-.rss:hover, .rss:active {
-    background: #ff8822;
+	& > footer {
+		opacity: 75%;
+		text-align: center;
+		text-shadow: #333 0 0 5px;
+	}
 }
