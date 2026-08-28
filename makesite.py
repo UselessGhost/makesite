@@ -74,7 +74,7 @@ def read_headers(text):
 def rfc_2822_format(date_str):
     """Convert yyyy-mm-dd date string to RFC 2822 format date string."""
     d = datetime.datetime.strptime(date_str, '%Y-%m-%d')
-    return d.strftime('%A, %B %d %Y')
+    return d.strftime('%A, %B %d %Y').lower()
 
 
 def read_content(filename):
