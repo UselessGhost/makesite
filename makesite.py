@@ -34,6 +34,7 @@ import glob
 import sys
 import json
 import datetime
+import html
 
 
 def fread(filename):
@@ -73,7 +74,7 @@ def read_headers(text):
 def rfc_2822_format(date_str):
     """Convert yyyy-mm-dd date string to RFC 2822 format date string."""
     d = datetime.datetime.strptime(date_str, '%Y-%m-%d')
-    return d.strftime('%a, %d %b %Y %H:%M:%S +0000')
+    return d.strftime('%A, %B %d %Y')
 
 
 def read_content(filename):
@@ -118,9 +119,15 @@ def read_content(filename):
 
 def render(template, **params):
     """Replace placeholders in template with values from params."""
-    return re.sub(r'{{\s*([^}\s]+)\s*}}',
-                  lambda match: str(params.get(match.group(1), match.group(0))),
+    template = re.sub(r'{{\s*([^}\s]+)\s*}}',
+                  lambda match: str(html.escape(params.get(match.group(1), match.group(0)))),
                   template)
+    
+    template = re.sub(r'{{!\s*([^}\s]+)\s*!}}',
+                lambda match: str(params.get(match.group(1), match.group(0))),
+                template)
+    
+    return template
 
 
 def make_pages(src, dst, layout, **params):
