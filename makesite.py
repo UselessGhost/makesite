@@ -185,6 +185,7 @@ def main():
         'subtitle': '',
         'base_path': '',
         'site_url': 'http://thoughts.mayshmallow.moe',
+        'background': '/img/bg.webp',
         'current_year': datetime.datetime.now().year
     }
 
