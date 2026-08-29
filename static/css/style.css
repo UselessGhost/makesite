@@ -40,6 +40,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+	margin: 0;
+	margin-bottom: 10px;
 	line-height: 1.5em;
 }
 
@@ -79,7 +81,7 @@ main {
 
 	& > header {
 		padding: 20px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 
 		border: 1px solid var(--primary-l);
 
@@ -91,6 +93,7 @@ main {
 	}
 
 	& > article {
+		margin-bottom: 20px;
 		padding: 20px;
 		background-color: rgba( 0, 0, 0, 0.5 );
 		backdrop-filter: blur( 10px );
@@ -98,10 +101,9 @@ main {
 		border: 1px solid #333;
 		box-shadow: inset #111 0 0 10px;
 
-		margin-bottom: 10px;
 
 		& > header {
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 		}
 
 		& img {
@@ -129,7 +131,6 @@ main {
 	}
 
 	& > footer {
-		margin: 10px;
 		text-align: center;
 		text-shadow: #333 0 0 5px;
 	}
