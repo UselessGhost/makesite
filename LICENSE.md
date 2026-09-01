@@ -1,3 +1,6 @@
+Copyright 2026 May "UselessGhost"
+This work uses "makeship.py", its license is included below.
+
 The MIT License (MIT)
 =====================
 

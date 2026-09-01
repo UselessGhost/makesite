@@ -74,8 +74,12 @@ def read_headers(text):
 def rfc_2822_format(date_str):
     """Convert yyyy-mm-dd date string to RFC 2822 format date string."""
     d = datetime.datetime.strptime(date_str, '%Y-%m-%d')
-    return d.strftime('%A, %B %d %Y').lower()
+    return d.strftime('%a, %d %b %Y %H:%M:%S +0000')
 
+def nice_date_format(date_str):
+    """Convert yyyy-mm-dd date string to RFC 2822 format date string."""
+    d = datetime.datetime.strptime(date_str, '%Y-%m-%d')
+    return d.strftime('%A, %B %d %Y').lower()
 
 def read_content(filename):
     """Read content and metadata from file into a dictionary."""
@@ -111,7 +115,8 @@ def read_content(filename):
     # Update the dictionary with content and RFC 2822 date.
     content.update({
         'content': text,
-        'rfc_2822_date': rfc_2822_format(content['date'])
+        'rfc_2822_date': rfc_2822_format(content['date']),
+        'nice_date': nice_date_format(content['date'])
     })
 
     return content
@@ -184,7 +189,7 @@ def main():
         #'title': 'unknown..?',
         'subtitle': '',
         'base_path': '',
-        'site_url': 'http://thoughts.mayshmallow.moe',
+        'site_url': '',
         'background': '/img/bg.webp',
         'current_year': datetime.datetime.now().year
     }
@@ -198,8 +203,8 @@ def main():
     post_layout = fread('layout/post.html')
     list_layout = fread('layout/list.html')
     item_layout = fread('layout/item.html')
-    #feed_xml = fread('layout/feed.xml')
-    #item_xml = fread('layout/item.xml')
+    feed_xml = fread('layout/feed.xml')
+    item_xml = fread('layout/item.xml')
 
     # Combine layouts to form final layouts.
     post_layout = render(page_layout, content=post_layout)
@@ -219,6 +224,10 @@ def main():
     # Create blog list pages.
     make_list(blog_posts, '_site/index.html',
               list_layout, item_layout, title="index", **params)
+
+    # Create RSS feed
+    make_list(blog_posts, '_site/rss.xml',
+            feed_xml, item_xml, **params)
 
 
 # Test parameter to be set temporarily by unit tests.
