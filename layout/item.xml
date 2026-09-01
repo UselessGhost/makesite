@@ -3,4 +3,7 @@
 <link>{{ site_url }}/{{ slug }}/</link>
 <description>{{ subtitle }}</description>
 <pubDate>{{ rfc_2822_date }}</pubDate>
+<content type="html">
+{{ content }}
+</content>
 </item>
