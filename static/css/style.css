@@ -59,6 +59,7 @@ a {
 }
 
 hr {
+	margin: 25px 0;
 	border: 0;
 	border-bottom: 2px dotted #ddd;
 }
@@ -78,6 +79,7 @@ main {
 	margin: 0 auto;
 	width: 100%;
 	max-width: 900px;
+	text-shadow: 0 0 5px #000;
 
 	& > header {
 		padding: 20px;
@@ -89,7 +91,6 @@ main {
 		backdrop-filter: blur( 10px );
 
 		box-shadow: var(--primary-d) 0 0 10px;
-		text-shadow: 0 0 5px #333;
 	}
 
 	& > article {
@@ -100,7 +101,6 @@ main {
 
 		border: 1px solid #333;
 		box-shadow: inset #111 0 0 10px;
-
 
 		& > header {
 			margin-bottom: 20px;
