@@ -47,6 +47,8 @@ p {
 
 a {
 	color: var(--secondary);
+	transition: color 0.2s;
+	
 	text-decoration: none;
 
 	&:hover {
